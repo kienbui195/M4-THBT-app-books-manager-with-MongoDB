@@ -12,6 +12,7 @@
 </head>
 <body>
 <h2>List Books</h2>
+<a href="/create">Create</a>
 <% data.forEach(book =>{ %>
  <h3>
   Title: <%= book.title %>
@@ -26,6 +27,15 @@
  <a href="/delete?id=<%=book._id%>">Delete</a>
  </br>
 <% }) %>
+
+<div class="pagination">
+    <a href="#">«</a>
+    <a href="http://localhost:3333?offset=0&limit=3">1</a>
+    <a href="http://localhost:3333?offset=1&limit=3">2</a>
+    <a href="http://localhost:3333?offset=2&limit=3">3</a>
+    <a href="#">»</a>
+
+</div>
 <!-- Optional JavaScript -->
 <!-- jQuery first, then Popper.js, then Bootstrap JS -->
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"

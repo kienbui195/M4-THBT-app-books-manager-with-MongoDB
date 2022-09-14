@@ -41,7 +41,17 @@ class Controller {
     }
     async getList(req, res) {
         try {
-            const books = await book_model_1.Book.find();
+            let limit;
+            let offset;
+            if (!req.query.limit || !req.query.offset) {
+                limit = 3;
+                offset = 0;
+            }
+            else {
+                limit = parseInt(req.query.limit);
+                offset = parseInt(req.query.offset);
+            }
+            const books = await book_model_1.Book.find().limit(limit).skip(limit * offset);
             res.render('listBook', { data: books });
         }
         catch (err) {
